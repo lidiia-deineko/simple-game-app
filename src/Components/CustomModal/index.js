@@ -26,15 +26,15 @@ const CustomModal = (props) => {
 
     const handleChangeHeight = useCallback((event) => {
         updateValueHeight(event.target.value)
-    })
+    }, [])
 
     const handleChangeWidth = useCallback((event) => {
         updateValueWidth(event.target.value)
-    })
+    }, [])
 
     const handleChangeColor = useCallback((event) => {
         updateValueColor(event.target.value)
-    })
+    }, [])
 
     const changeValues = useCallback(() => {
 
@@ -44,6 +44,7 @@ const CustomModal = (props) => {
             if(element.id === idElem){
                 return true
             }
+            return false
         })
 
         const newList = [...mainContext.list]
@@ -84,7 +85,7 @@ const CustomModal = (props) => {
         >
            <Box className='Modal-Inner'>
             <div className='Modal-Inner'>
-                    <img onClick={onHide} className='closeBtn' src={closeBtn} />
+                    <img onClick={onHide} className='closeBtn' src={closeBtn} alt='close'/>
                     <h1>Info about element:</h1>
                     <div>
                         <div className='text'>Heihgt: <span>{props.height}</span></div>
